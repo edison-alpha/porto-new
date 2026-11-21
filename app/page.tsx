@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ProfilePhoto from "@/components/ProfilePhoto";
 import ProjectPreview from "@/components/ProjectPreview";
 import RailToc from "@/components/RailToc";
 import Link from "next/link";
@@ -66,14 +66,7 @@ export default function Home() {
             <span>{profile.location}</span>
           </div>
         </div>
-        <Image
-          src="/me.png"
-          alt={profile.name}
-          width={72}
-          height={72}
-          priority
-          className="mt-1 size-[72px] shrink-0 rounded-full bg-line object-cover object-top ring-1 ring-white/10"
-        />
+        <ProfilePhoto src="/me.png" alt={profile.name} />
       </Reveal>
 
       <div className="mt-16">
