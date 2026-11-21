@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import MobileDock from "@/components/MobileDock";
+import ServiceWorker from "@/components/ServiceWorker";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const serif = Instrument_Serif({
@@ -15,6 +16,13 @@ export const metadata: Metadata = {
   title: "Bayu Mukti Wibowo",
   description:
     "Informatics engineer from Indonesia building web3 and full-stack products.",
+  applicationName: "Bayu Mukti Wibowo",
+  appleWebApp: { capable: true, title: "Bayu", statusBarStyle: "black-translucent" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#141413",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -26,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </div>
         <MobileDock />
+        <ServiceWorker />
       </body>
     </html>
   );
